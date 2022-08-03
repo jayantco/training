@@ -1,3 +1,17 @@
+//By this selenium script, we will test the login process of e-commerce site. We will provide the correct email and password to login form and click on login button. 
+//Here the are steps what we will perform to test login process
+// 1. setup the property of chromedriver because we will perform testing of login process through chrome web browser.
+// 2. Initialize Webdriver object through ChromeDriver class.
+// 3. Open login page of https://admin-demo.nopcommerce.com/login
+// 4. Get reference of Email input box by locate the id method.
+// 5. Clear the Email input box.
+// 6. Get reference of Password input box by locate the id method.
+// 7. Clear the Password input box.
+// 8. Provide/Enter the correct email to email input box through reference.
+// 9. Provide/Enter the correct password to password input box through reference.
+// 10. Get reference of login button by locate the classname method.
+// 11. Submit the button.
+// 12. Close the web browser.
 package slenium_package;
 
 import org.openqa.selenium.By;
@@ -5,36 +19,36 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-// In this code we are trying to perform login to a website.
-// Here we will locate the email and pasword input box section 
-// In this case the email and pasword section is filled by default .So we need to clear this section. 
-// Once all section are filled click the submit button
 public class LoginClass {
 	
 	public static void main(String[] args) {
-	
+	//Declare webdriver interface reference
 	WebDriver browserDriver;
-	// Set the path of chromeDriver browser
+	// 1. setup the property of chromedriver because we will perform testing of login process through chrome web browser.
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
-	// Create the reference of the chromedriver browser
+	// 2. Initialize Webdriver object through ChromeDriver class.
         browserDriver = new ChromeDriver();
-	// get method helps to load the web pages in the browser that we pass in a given parameter.
+	// 3. Open login page of https://admin-demo.nopcommerce.com/login
         browserDriver.get("https://admin-demo.nopcommerce.com/login");
        
-	// Locate the email text box and clear the text box using clear method 
+	// 4. Get reference of Email input box by locate the id method.
         WebElement email=browserDriver.findElement(By.id("Email"));
+	// 5. Clear the Email input box.
         email.clear();
-	// Locate the password text box and clear the text box using clear method 
+	// 6. Get reference of Password input box by locate the id method.
         WebElement password=browserDriver.findElement(By.id("Password"));
+	// 7. Clear the Password input box.
         password.clear();
-	// send values in email box
+	// 8. Provide/Enter the correct email to email input box through reference.
         email.sendKeys("admin@yourstore.com");
-	// send values in password box
+	// 9. Provide/Enter the correct password to password input box through reference.
         password.sendKeys("admin");
-	// Locate the signIn button and perform click
+	// 10. Get reference of login button by locate the classname method.
         WebElement button=browserDriver.findElement(By.className("button-1"));
-	// submit the value
+	// 11. Submit the button.
         button.submit();
+	// 12. Close the web browser.
+	browserDriver.close();
 	}
 
 }
